@@ -1,6 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useContext, useEffect, useState } from "react";
+import {FormExample} from './formUseStateExample'
+import { CallbackExample } from "./useCallback";
+import { MemoExample } from "./useMemo";
+import ReducerExample from "./useReducer";
+import { ContextExample } from "./useContext.";
 
 const friendList = [
   { id: 1, name: "Phoebe" },
@@ -35,6 +40,10 @@ function UseStateHookExample() {
     count1: 10,
     count2: 20,
   });
+  useEffect(()=>{
+
+    localStorage.setItem("count", JSON.stringify(count))
+  },[count])
   // Similar to componentDidMount and componentDidUpdate:
   //this component sets the document title after React updates the DOM:
   /***
@@ -68,6 +77,7 @@ function UseStateHookExample() {
       >
         increment count 1
       </button>
+      <FormExample/>
     </div>
   );
 }
@@ -155,6 +165,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <UseStateHookExample />
+        <CallbackExample/>
+        <MemoExample/>
+        <ReducerExample/>
+        <ContextExample/>
       </header>
     </div>
   );
